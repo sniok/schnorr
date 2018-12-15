@@ -40,6 +40,7 @@ public class SchnorrGroup {
         }
 
         // Generate g – generator of subgroup
+        // a ^ ga mod p != 1
         BigInteger g, a, ga;
         while(true) {
             a = (TWO.add(new BigInteger(bitLength, 100, sr))).mod(p);
@@ -49,10 +50,6 @@ public class SchnorrGroup {
                 break;
             }
         }
-
-        System.out.println(p);
-        System.out.println(q);
-        System.out.println(g);
 
         return new SchnorrGroup(p,q,g);
     }
